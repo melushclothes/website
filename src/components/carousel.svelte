@@ -25,7 +25,7 @@
     <Image 
     class="absolute top-0 left-0 w-full h-full object-cover"
     title={image.title} src={
-      "./src/assets/clothes/" + image + ".png"
+      "https://raw.githubusercontent.com/melushclothes/website/main/src/assets/clothes/" + image + ".png"
     } alt={image.explanation}>
     <div slot="figcaption" class="absolute bottom-0 top-0 left-0 flex justify-between w-full">
       <button  on:click={previous} aria-label="Previous">
