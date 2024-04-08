@@ -1,0 +1,28 @@
+[data-theme="light"] {
+  --color-primary: #000;
+  --color-secondary: theme("colors.indigo.500");
+  --color-text: theme("colors.gray.900");
+  --color-text-offset: #8A7C7C;
+  --color-text-accent: theme("colors.gray.50");
+  --color-background: #F6F6F6;
+  --color-background-offset: #FFF;
+  --color-border: theme("colors.gray.900" / 10%);
+  --color-text-currency: #208247;
+  --color-text-currency-discount: #DC143C;
+  --color-accent: #312929;
+}
+
+[data-theme="dark"] {
+  --color-primary: #FFF;
+  --color-secondary: theme("colors.indigo.400");
+  --color-text: theme("colors.gray.50");
+  --color-text-offset: theme("colors.gray.400");
+  --color-text-accent: #000;
+  --color-background: theme("colors.gray.900");
+  --color-background-offset: theme("colors.gray.800");
+  --color-border: theme("colors.gray.50" / 10%);
+  --color-text-currency: #208247;
+  --color-text-currency-discount: #DC143C;
+  --color-accent: theme("colors.gray.50");
+}
+

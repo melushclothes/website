@@ -1,0 +1,31 @@
+---
+import SocialMedia from '~/components/social-media.astro';
+import type { ContactItem } from '~/types';
+
+const contactPlatforms: Array<ContactItem> = [
+  {
+    title: 'tiktok',
+    icon: 'frameworks/tiktok',
+    url: 'https://www.tiktok.com/@melush.31',
+  },
+  {
+    title: 'instagram',
+    icon: 'mdi:instagram',
+    url: 'https://www.instagram.com/melush_clothes/',
+  },
+  {
+    title: 'facebook',
+    icon: 'mdi:facebook',
+    url: 'https://www.facebook.com/profile.php?id=100094661941047',
+  },
+];
+---
+
+<footer class="relative flex h-64 items-center justify-center bg-offset">
+  <section>
+    <h2 class="mb-4 text-center font-bold text-4xl">
+      Síguenos en nuestras redes
+    </h2>
+    <SocialMedia items={contactPlatforms} />
+  </section>
+</footer>

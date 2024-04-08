@@ -1,0 +1,153 @@
+---
+import ContentSection from '~/components/content-section.astro';
+import type { ClotheItem } from '~/types';
+import Carousel from './carousel.svelte';
+
+const clothes: Array<ClotheItem> = [
+  {
+    title: 'Polo Basico',
+    materials: ['Algodon'],
+    size: 'M-L',
+    price: 45,
+    images: ['polobasico1', 'polobasico2', 'polobasico3'],
+    colors: ['lila', 'celeste', 'azul'],
+    category: 'polo',
+    discount: 20,
+  },
+  {
+    title: 'Pijama Luna',
+    materials: ['Algodon 30/1', 'con detalles de encaje'],
+    size: 'S-M',
+    price: 105.0,
+    images: ['luna1', 'luna2', 'luna3', 'luna4', 'luna5'],
+    colors: ['rosa'],
+    category: 'pijama',
+    discount: 20,
+  },
+  {
+    title: 'Lenceria Diana',
+    materials: ['Encaje colombiano'],
+    size: 'S-M',
+    price: 135.0,
+    images: ['diana1', 'diana2', 'diana3', 'diana4', 'diana5'],
+    colors: ['rosa', 'negro'],
+    category: 'lenceria',
+    discount: 20,
+  },
+  {
+    title: 'Pijama Mariana',
+    materials: ['Algodon 30/1'],
+    size: 'M-L',
+    price: 79.9,
+    images: ['mariana1', 'mariana2', 'mariana3', 'mariana4'],
+    colors: ['negro'],
+    category: 'pijama',
+    discount: 20,
+  },
+  {
+    title: 'Enterizo Afrodita',
+    materials: ['Viscosa Nacional'],
+    size: 'Standard',
+    price: 115.0,
+    images: ['afrodita1', 'afrodita2', 'afrodita3'],
+    colors: ['negro', 'lila'],
+    category: 'Enterizo',
+    discount: 20,
+  },
+  {
+    title: 'Top Romina',
+    materials: ['Rib'],
+    size: 'Standard',
+    price: 42.0,
+    images: [
+      "romina1"
+    ],
+    colors: ['crema', 'blanco', 'negro'],
+    category: 'Tops',
+    discount: 20,
+  },
+  {
+    title: 'Yoga Pant',
+    materials: ['Viscosa Nacional Acanalada'],
+    size: 'Standard',
+    price: 59.9,
+    images: [
+    "yogapant1",
+    "yogapant2",
+    "yogapant3",
+    "yogapant4",
+    "yogapant5",
+    "yogapant6",
+    ],
+    colors: ['negro'],
+    category: 'Pantalones',
+    discount: 20,
+  },
+];
+
+const widths = [450, 800, 1200, 2000];
+const sizes = '100vw';
+
+
+type Image = {
+	title: string;
+	explanation: string;
+	media_type: 'image' | 'video';
+	/** Date published in YYYY-MM-DD format */
+	date: string;
+	/** Video URL or standard resolution image URL */
+	url: string;
+	/** High-res image URL (for media_type: 'image' only) */
+	hdurl?: string;
+	/** API version. Defaults to "v1" */
+	service_version: string;
+}
+---
+
+<ContentSection title="MELUSH" id="catalogue">
+  <ul class="grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+    {
+      clothes.map(({ title, materials, size, price, discount, images }) => (
+        <li class="flex flex-col items-start gap-4 rounded-lg border border-default bg-offset p-3">
+          <Carousel client:load images={images}} />
+          <header class="text-center font-extrabold text-xl">{title}</header>
+          <section class="flex w-full justify-between space-x-4">
+            <p class="text text-base">Materiales</p>
+            <p class="truncate font-semibold text-offset text-base">
+              {materials.join(',')}
+            </p>
+          </section>
+          <section class="flex w-full justify-between">
+            <p class="text text-base">Tallas</p>
+            <p class="font-semibold text-offset text-base">{size}</p>
+          </section>
+          <section class="flex w-full space-x-2">
+            <p
+              class={`${
+                discount ? 'line-through' : ''
+              } font-bold text-currency text-base`}
+            >
+              PEN {price % 1 === 0 ? price + '.00' : price.toFixed(2)}
+            </p>
+            <p class="font-bold text-currencyDiscount text-base">
+              {
+                // add decimal places to the price if needed
+                discount
+                  ? ' - ' + (price - (price * discount) / 100).toFixed(2)
+                  : ''
+              }
+            </p>
+          </section>
+          <button
+            class="w-full rounded-full bg-accent px-4 py-2 font-bold text-accent hover:bg-blue-700"
+            onclick="window.open('https://ig.me/m/melush_clothes', '_blank')"
+            type="button"
+            aria-label="Contact"
+          >
+            Contactar
+          </button>
+        </li>
+      ))
+    }
+  </ul>
+</ContentSection>

@@ -1,0 +1,24 @@
+---
+import ContactInfo from '~/components/contact-info.astro';
+import ContentSection from '~/components/content-section.astro';
+import type { ContactItem } from '~/types';
+
+const contactPlatforms: Array<ContactItem> = [
+    {
+        title: '(+51) 982 391 450',
+        icon: 'mdi:whatsapp',
+        url: 'https://wa.me/+51982391450',
+    },
+];
+---
+
+<ContentSection id="contact" title="Hecho con amor 💖">
+    <Fragment slot="lead">
+        Nos destacamos por ofrecer prendas con buena <span class="text-offset">
+            calidad y acabados</span
+        >
+         pensando en la <span class="text-offset">comodidad</span> de nuestros
+        clientes
+    </Fragment>
+    <ContactInfo items={contactPlatforms} />
+</ContentSection>
