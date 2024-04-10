@@ -9,10 +9,10 @@ const clothes: Array<ClotheItem> = [
     materials: ['Algodon'],
     size: 'M-L',
     price: 45,
-    images: ['polobasico1', 'polobasico2', 'polobasico3'],
+    images: ['polobasico3', 'polobasico1', 'polobasico2', ],
     colors: ['lila', 'celeste', 'azul'],
     category: 'polo',
-    discount: 20,
+    discount: 0,
   },
   {
     title: 'Pijama Luna',
@@ -42,7 +42,7 @@ const clothes: Array<ClotheItem> = [
     images: ['mariana1', 'mariana2', 'mariana3', 'mariana4'],
     colors: ['negro'],
     category: 'pijama',
-    discount: 20,
+    discount: 0,
   },
   {
     title: 'Enterizo Afrodita',
@@ -52,7 +52,7 @@ const clothes: Array<ClotheItem> = [
     images: ['afrodita1', 'afrodita2', 'afrodita3'],
     colors: ['negro', 'lila'],
     category: 'Enterizo',
-    discount: 20,
+    discount: 0,
   },
   {
     title: 'Top Romina',
@@ -64,7 +64,7 @@ const clothes: Array<ClotheItem> = [
     ],
     colors: ['crema', 'blanco', 'negro'],
     category: 'Tops',
-    discount: 20,
+    discount: 0,
   },
   {
     title: 'Yoga Pant',
@@ -81,7 +81,7 @@ const clothes: Array<ClotheItem> = [
     ],
     colors: ['negro'],
     category: 'Pantalones',
-    discount: 20,
+    discount: 0,
   },
 ];
 
@@ -104,7 +104,7 @@ type Image = {
 }
 ---
 
-<ContentSection title="MELUSH" id="catalogue">
+<ContentSection id="catalogue">
   <ul class="grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
     {
       clothes.map(({ title, materials, size, price, discount, images }) => (

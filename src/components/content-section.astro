@@ -1,7 +1,11 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 export interface Props {
   id: string;
-  title: string;
+  // optional
+  title?: string;
+  image?: string;
 }
 
 const { title, id } = Astro.props;
@@ -11,12 +15,16 @@ const { title, id } = Astro.props;
   id={id}
   class="flex scroll-mt-24 flex-col items-center gap-4 space-y-8"
 >
-  <header class="flex flex-col items-center gap-4">
-    <slot name="eyebrow" />
-    <h2 class="text text-center font-extrabold tracking-tight text-6xl">
-      {title}
-    </h2>
-  </header>
+  {
+    (title && (
+      <header class="flex flex-col items-center gap-4">
+        <slot name="eyebrow" />
+        <h2 class="text text-center font-extrabold tracking-tight text-6xl">
+          {title}
+        </h2>
+      </header>
+    )) || <Icon class="h-8 w-full sm:h-16" name={'MELUSH'} />
+  }
   <p class="max-w-xl text-center font-extrabold text-2xl">
     <slot name="lead" />
   </p>
