@@ -1,0 +1,150 @@
+{
+    "items": [
+        {
+            "id": 1,
+            "title": "Polo Basico",
+            "materials": [
+                "Algodon"
+            ],
+            "size": "M-L",
+            "price": 45,
+            "images": [
+                "polobasico3",
+                "polobasico1",
+                "polobasico2"
+            ],
+            "colors": [
+                "lila",
+                "celeste",
+                "azul"
+            ],
+            "category": "polo",
+            "discount": 0
+        },
+        {
+            "id": 2,
+            "title": "Pijama Luna",
+            "materials": [
+                "Algodon 30/1",
+                "con detalles de encaje"
+            ],
+            "size": "S-M",
+            "price": 105.0,
+            "images": [
+                "luna1",
+                "luna2",
+                "luna3",
+                "luna4",
+                "luna5"
+            ],
+            "colors": [
+                "rosa"
+            ],
+            "category": "pijama",
+            "discount": 20
+        },
+        {
+            "id": 3,
+            "title": "Lenceria Diana",
+            "materials": [
+                "Encaje colombiano"
+            ],
+            "size": "S-M",
+            "price": 135.0,
+            "images": [
+                "diana1",
+                "diana2",
+                "diana3",
+                "diana4",
+                "diana5"
+            ],
+            "colors": [
+                "rosa",
+                "negro"
+            ],
+            "category": "lenceria",
+            "discount": 20
+        },
+        {
+            "id": 4,
+            "title": "Pijama Mariana",
+            "materials": [
+                "Algodon 30/1"
+            ],
+            "size": "M-L",
+            "price": 79.9,
+            "images": [
+                "mariana1",
+                "mariana2",
+                "mariana3",
+                "mariana4"
+            ],
+            "colors": [
+                "negro"
+            ],
+            "category": "pijama",
+            "discount": 0
+        },
+        {
+            "id": 5,
+            "title": "Enterizo Afrodita",
+            "materials": [
+                "Viscosa Nacional"
+            ],
+            "size": "Standard",
+            "price": 115.0,
+            "images": [
+                "afrodita1",
+                "afrodita2",
+                "afrodita3"
+            ],
+            "colors": [
+                "negro",
+                "lila"
+            ],
+            "category": "Enterizo",
+            "discount": 0
+        },
+        {
+            "id": 6,
+            "title": "Top Romina",
+            "materials": [
+                "Rib"
+            ],
+            "size": "Standard",
+            "price": 42.0,
+            "images": [
+                "romina1"
+            ],
+            "colors": [
+                "crema",
+                "blanco",
+                "negro"
+            ],
+            "category": "Tops",
+            "discount": 0
+        },
+        {
+            "id": 7,
+            "title": "Yoga Pant",
+            "materials": [
+                "Viscosa Nacional Acanalada"
+            ],
+            "size": "Standard",
+            "price": 59.9,
+            "images": [
+                "yogapant1",
+                "yogapant2",
+                "yogapant3",
+                "yogapant4",
+                "yogapant5",
+                "yogapant6"
+            ],
+            "colors": [
+                "negro"
+            ],
+            "category": "Pantalones",
+            "discount": 0
+        }
+    ]
+}

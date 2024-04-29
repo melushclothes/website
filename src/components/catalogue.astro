@@ -2,88 +2,9 @@
 import ContentSection from '~/components/content-section.astro';
 import type { ClotheItem } from '~/types';
 import Carousel from './carousel.svelte';
+import clothesJson from "./../assets/data.json" assert { type: 'json' };
 
-const clothes: Array<ClotheItem> = [
-  {
-    title: 'Polo Basico',
-    materials: ['Algodon'],
-    size: 'M-L',
-    price: 45,
-    images: ['polobasico3', 'polobasico1', 'polobasico2', ],
-    colors: ['lila', 'celeste', 'azul'],
-    category: 'polo',
-    discount: 0,
-  },
-  {
-    title: 'Pijama Luna',
-    materials: ['Algodon 30/1', 'con detalles de encaje'],
-    size: 'S-M',
-    price: 105.0,
-    images: ['luna1', 'luna2', 'luna3', 'luna4', 'luna5'],
-    colors: ['rosa'],
-    category: 'pijama',
-    discount: 20,
-  },
-  {
-    title: 'Lenceria Diana',
-    materials: ['Encaje colombiano'],
-    size: 'S-M',
-    price: 135.0,
-    images: ['diana1', 'diana2', 'diana3', 'diana4', 'diana5'],
-    colors: ['rosa', 'negro'],
-    category: 'lenceria',
-    discount: 20,
-  },
-  {
-    title: 'Pijama Mariana',
-    materials: ['Algodon 30/1'],
-    size: 'M-L',
-    price: 79.9,
-    images: ['mariana1', 'mariana2', 'mariana3', 'mariana4'],
-    colors: ['negro'],
-    category: 'pijama',
-    discount: 0,
-  },
-  {
-    title: 'Enterizo Afrodita',
-    materials: ['Viscosa Nacional'],
-    size: 'Standard',
-    price: 115.0,
-    images: ['afrodita1', 'afrodita2', 'afrodita3'],
-    colors: ['negro', 'lila'],
-    category: 'Enterizo',
-    discount: 0,
-  },
-  {
-    title: 'Top Romina',
-    materials: ['Rib'],
-    size: 'Standard',
-    price: 42.0,
-    images: [
-      "romina1"
-    ],
-    colors: ['crema', 'blanco', 'negro'],
-    category: 'Tops',
-    discount: 0,
-  },
-  {
-    title: 'Yoga Pant',
-    materials: ['Viscosa Nacional Acanalada'],
-    size: 'Standard',
-    price: 59.9,
-    images: [
-    "yogapant1",
-    "yogapant2",
-    "yogapant3",
-    "yogapant4",
-    "yogapant5",
-    "yogapant6",
-    ],
-    colors: ['negro'],
-    category: 'Pantalones',
-    discount: 0,
-  },
-];
+const clothes: Array<ClotheItem> = clothesJson.items;
 
 const widths = [450, 800, 1200, 2000];
 const sizes = '100vw';
@@ -107,9 +28,14 @@ type Image = {
 <ContentSection id="catalogue">
   <ul class="grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
     {
-      clothes.map(({ title, materials, size, price, discount, images }) => (
+      clothes.map(({ id, title, materials, size, price, discount, images }) => (
         <li class="flex flex-col items-start gap-4 rounded-lg border border-default bg-offset p-3">
           <Carousel client:load images={images}} />
+          <!--
+          <a href={`/item/${id}`}>
+            <header class="text-center font-extrabold text-xl">{title}</header>
+          </a>
+          -->
           <header class="text-center font-extrabold text-xl">{title}</header>
           <section class="flex w-full justify-between space-x-4">
             <p class="text text-base">Materiales</p>

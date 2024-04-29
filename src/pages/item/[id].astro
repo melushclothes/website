@@ -1,0 +1,25 @@
+---
+import type { GetStaticPaths } from 'astro';
+import clothesJson from './../../assets/data.json' assert { type: 'json' };
+
+const { id } = Astro.params;
+
+export function getStaticPaths() {
+    return clothesJson.items.map((item) => ({
+        params: {
+            id: item.id,
+        },
+    }));
+}
+
+const item = clothesJson.items.find((item) => item.id == id);
+---
+
+<section
+    id={id.toString()}
+    title={item?.title}
+    class="flex scroll-mt-24 flex-col items-center gap-4 space-y-8"
+>
+    <h1 class="font-bold text-4xl">{item?.title}</h1>
+     aaaaaaaaaaaaaaaaaaaa nnnnnn
+</section>

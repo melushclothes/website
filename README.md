@@ -43,6 +43,9 @@
 - add dots counter on slider
 - remove button "contact" on catalog screen. Its redundant. All card should be touchable. Like [here](https://www.airbnb.com.pe/)
 - In detail screen mobile mantain price and action button stick to bottom. Like [here](https://www.airbnb.com.pe/rooms/757857853968620040?adults=1&category_tag=Tag%3A8101&children=0&enable_m3_private_room=true&infants=0&pets=0&photo_id=1642198802&search_mode=flex_destinations_search&check_in=2024-04-07&check_out=2024-04-12&source_impression_id=p3_1712506853_RjAQpekcKEavhyX%2F&previous_page_section_name=1000&federated_search_id=bb5e7cee-b2db-4741-9b20-61c0e8b6d407)
+- In details screen. Open a new tab when selecting a cloth and in mobile show a back button to return to catalog screen.
+- Detail screen similar to Zara or (airbnb and mango) on mobile
 - Make images load faster (CDN?)
 - Project for setting content on backend
 - Make image resize to something around 480x480px
+- Migrate to matomo for analytics once there is money for shared hosting
