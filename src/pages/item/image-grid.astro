@@ -1,0 +1,32 @@
+---
+export interface Props {
+    images: string[];
+}
+
+const { images } = Astro.props;
+
+const showImages = images.slice(1, 5);
+---
+
+<section id={'ImageGrid'}>
+    <div class="grid grid-rows-1 lg:grid-cols-4 lg:grid-rows-2 lg:gap-4">
+        <div class="grid-rows-subgrid grid lg:col-span-2 lg:row-span-2">
+            <img
+                src={`https://raw.githubusercontent.com/melushclothes/website/main/src/assets/clothes/${images[0]}.webp`}
+                alt={`Image ${0}`}
+                class="aspect-square h-auto w-full object-cover lg:rounded-lg"
+            />
+        </div>
+        {
+            showImages.map((image, index) => (
+                <img
+                    src={`https://raw.githubusercontent.com/melushclothes/website/main/src/assets/clothes/${
+                        images[index + 1]
+                    }.webp`}
+                    alt={`Image ${index + 1}`}
+                    class="aspect-square h-auto w-full object-cover lg:rounded-lg"
+                />
+            ))
+        }
+    </div>
+</section>

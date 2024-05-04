@@ -1,0 +1,51 @@
+---
+import Colors from './../../components/colors.astro';
+
+export interface Props {
+    title: string;
+    description: string;
+    colors: string[];
+    mapData: Map<String, any>;
+}
+
+const { title, description, mapData, colors } = Astro.props;
+
+const labels = [];
+const values = [];
+for (const [key, value] of mapData) {
+    labels.push(key);
+    if (typeof key === 'string') {
+        values.push(value);
+    } else {
+        values.push(value.join(', '));
+    }
+}
+---
+
+<section id="ClotheSpecs" class="flex flex-col gap-4 space-y-2 lg:pr-4">
+    <h1
+        class="text hidden text-start font-bold tracking-tight text-4xl lg:flex"
+    >
+        {title}
+    </h1>
+    <Colors colors={colors} />
+    <p class="text text-start text-lg">
+        {description}
+    </p>
+    <div class="grid grid-cols-3">
+        <div class="flex flex-col gap-2">
+            {
+                labels.map((label) => (
+                    <p class="text text-start text-lg">{`${label} :`}</p>
+                ))
+            }
+        </div>
+        <div class="flex flex-col gap-2">
+            {
+                values.map((value) => (
+                    <p class="text text-start text-lg">{value}</p>
+                ))
+            }
+        </div>
+    </div>
+</section>

@@ -1,6 +1,11 @@
 ---
-import type { GetStaticPaths } from 'astro';
+import SimilarItems from './similar-items.astro';
+import ClotheSpecs from './clothe-specs.astro';
+import ActionCard from './action-card.astro';
+import ImageGrid from './image-grid.astro';
+import StickyAction from './sticky-action.astro';
 import clothesJson from './../../assets/data.json' assert { type: 'json' };
+import Layout from './../../layouts/Layout.astro';
 
 const { id } = Astro.params;
 
@@ -13,13 +18,62 @@ export function getStaticPaths() {
 }
 
 const item = clothesJson.items.find((item) => item.id == id);
+
+// generate a map of the data wiuth the keys: materials sizes colors colors category
+const dataMap = new Map<string, any>([
+    ['materials', item?.materials],
+    ['sizes', item?.size],
+    ['category', item?.category],
+]);
 ---
 
-<section
-    id={id.toString()}
-    title={item?.title}
-    class="flex scroll-mt-24 flex-col items-center gap-4 space-y-8"
->
-    <h1 class="font-bold text-4xl">{item?.title}</h1>
-     aaaaaaaaaaaaaaaaaaaa nnnnnn
-</section>
+<script>
+    const elmntToView = document.getElementById('clotheId');
+    const fixedTitleAction = document.getElementById('fixedTitleAction');
+
+    function scrollToTop() {
+        elmntToView!.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    fixedTitleAction!.addEventListener('click', scrollToTop);
+</script>
+
+<Layout>
+    <section
+        id={id.toString()}
+        class="mx-auto flex max-w-6xl scroll-mt-24 flex-col items-center gap-4 py-32"
+    >
+        <ImageGrid images={item?.images || []} />
+        <div
+            id="fixedTitleAction"
+            class="fixed bottom-0 h-auto w-full bg-default p-4"
+        >
+            <StickyAction
+                title={item!.title}
+                price={item?.price || 0}
+                discount={item?.discount || 0}
+                customClass="lg:hidden flex flex-row space-x-4 justify-between items-center"
+            />
+        </div>
+        <div
+            id="clotheId"
+            class="top grid grid-cols-1 space-y-5 lg:relative lg:grid-cols-3"
+        >
+            <div class="grid-rows-subgrid grid lg:col-span-2 lg:row-span-1">
+                <ClotheSpecs
+                    title={item!.title}
+                    mapData={dataMap}
+                    colors={item?.colors || []}
+                    description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It"}
+                />
+            </div>
+            <ActionCard
+                price={item?.price || 0}
+                discount={item?.discount || 0}
+            />
+            <div class="grid-rows-subgrid grid lg:col-span-3 lg:row-span-1">
+                <SimilarItems id={id} />
+            </div>
+        </div>
+    </section>
+</Layout>

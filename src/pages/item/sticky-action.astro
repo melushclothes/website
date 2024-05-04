@@ -1,0 +1,29 @@
+---
+import PriceC from '~/components/price_section.astro';
+
+export interface Props {
+    price: number;
+    discount: number;
+    title: string;
+    customClass: string;
+}
+
+const { price, discount, title, customClass } = Astro.props;
+---
+
+<section id="StickyAction" class={customClass}>
+    <div class="flex-col">
+        <h1 class="text text-start font-bold tracking-tight text-2xl">
+            {title}
+        </h1>
+        <PriceC price={price} discount={discount} />
+    </div>
+    <button
+        class="rounded-lg bg-accent py-2 pl-2 pr-2 font-bold text-accent hover:bg-blue-700"
+        onclick="window.open('https://ig.me/m/melush_clothes', '_blank')"
+        type="button"
+        aria-label="Contact"
+    >
+        Contactar
+    </button>
+</section>

@@ -1,0 +1,22 @@
+---
+export interface Props {
+    price: number;
+    discount: number;
+    customClass?: string;
+}
+
+const { price, discount, customClass } = Astro.props;
+---
+
+<section class={customClass || 'flex w-full space-x-1'}>
+    <p
+        class={`${
+            discount ? 'line-through' : ''
+        } font-bold text-currency text-base`}
+    >
+        S/ {price % 1 === 0 ? price + '.00' : price.toFixed(2)}
+    </p>
+    <p class="font-bold text-currencyDiscount text-base">
+        {discount ? ' - ' + (price - (price * discount) / 100).toFixed(2) : ''}
+    </p>
+</section>

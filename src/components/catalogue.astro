@@ -1,13 +1,13 @@
 ---
 import ContentSection from '~/components/content-section.astro';
+import PriceC from '~/components/price_section.astro';
 import type { ClotheItem } from '~/types';
 import Carousel from './carousel.svelte';
+import Colors from './colors.astro';
 import clothesJson from "./../assets/data.json" assert { type: 'json' };
 
-const clothes: Array<ClotheItem> = clothesJson.items;
 
-const widths = [450, 800, 1200, 2000];
-const sizes = '100vw';
+const clothes: Array<ClotheItem> = clothesJson.items;
 
 
 type Image = {
@@ -28,15 +28,13 @@ type Image = {
 <ContentSection id="catalogue">
   <ul class="grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
     {
-      clothes.map(({ id, title, materials, size, price, discount, images }) => (
-        <li class="flex flex-col items-start gap-4 rounded-lg border border-default bg-offset p-3">
+      clothes.map(({ id, title, materials, size, price, discount, images, colors }) => (
+        <li class="flex flex-col items-start gap-4 rounded-lg border border-default bg-offset p-2">
           <Carousel client:load images={images}} />
-          <!--
           <a href={`/item/${id}`}>
             <header class="text-center font-extrabold text-xl">{title}</header>
           </a>
-          -->
-          <header class="text-center font-extrabold text-xl">{title}</header>
+          <Colors colors={colors}/>
           <section class="flex w-full justify-between space-x-4">
             <p class="text text-base">Materiales</p>
             <p class="truncate font-semibold text-offset text-base">
@@ -47,31 +45,7 @@ type Image = {
             <p class="text text-base">Tallas</p>
             <p class="font-semibold text-offset text-base">{size}</p>
           </section>
-          <section class="flex w-full space-x-2">
-            <p
-              class={`${
-                discount ? 'line-through' : ''
-              } font-bold text-currency text-base`}
-            >
-              PEN {price % 1 === 0 ? price + '.00' : price.toFixed(2)}
-            </p>
-            <p class="font-bold text-currencyDiscount text-base">
-              {
-                // add decimal places to the price if needed
-                discount
-                  ? ' - ' + (price - (price * discount) / 100).toFixed(2)
-                  : ''
-              }
-            </p>
-          </section>
-          <button
-            class="w-full rounded-full bg-accent px-4 py-2 font-bold text-accent hover:bg-blue-700"
-            onclick="window.open('https://ig.me/m/melush_clothes', '_blank')"
-            type="button"
-            aria-label="Contact"
-          >
-            Contactar
-          </button>
+          <PriceC price={price} discount={discount} />
         </li>
       ))
     }
