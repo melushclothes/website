@@ -29,11 +29,10 @@ type Image = {
   <ul class="grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
     {
       clothes.map(({ id, title, materials, size, price, discount, images, colors }) => (
-        <li class="flex flex-col items-start gap-4 rounded-lg border border-default bg-offset p-2">
+        <li>
+          <a class="flex flex-col items-start gap-4 rounded-lg border border-default bg-offset p-2" href={`/item/${id}`}>
           <Carousel client:load images={images}} />
-          <a href={`/item/${id}`}>
             <header class="text-center font-extrabold text-xl">{title}</header>
-          </a>
           <Colors colors={colors}/>
           <section class="flex w-full justify-between space-x-4">
             <p class="text text-base">Materiales</p>
@@ -46,6 +45,7 @@ type Image = {
             <p class="font-semibold text-offset text-base">{size}</p>
           </section>
           <PriceC price={price} discount={discount} />
+        </a>
         </li>
       ))
     }

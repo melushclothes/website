@@ -6,13 +6,20 @@ export interface Props {
 const { colors } = Astro.props;
 ---
 
-<ul>
-    {
-        colors.map((item) => (
-            <li
-                class="mr-2 inline-block h-7 w-7 rounded-full border-2 border-accent"
-                style={{ 'background-color': item.toString() }}
-            />
-        ))
-    }
-</ul>
+{
+    colors.length > 1 ? (
+        <ul>
+            {colors.map((item) => (
+                <li
+                    class="mr-2 inline-block h-7 w-7 rounded-full border-2 border-accent"
+                    style={{ 'background-color': item.toString() }}
+                />
+            ))}
+        </ul>
+    ) : (
+        <div
+            class="hidden h-7 w-7 rounded-full md:flex lg:flex"
+            style={{ 'background-color': colors[0].toString() }}
+        />
+    )
+}

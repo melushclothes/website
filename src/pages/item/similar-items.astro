@@ -13,13 +13,13 @@ const clothes = clothesJson.items.filter(
     <h2 class="text text-start font-bold tracking-tight text-3xl">
         {'Articulos similares'}
     </h2>
-    <ul class="grid grid-cols-3 gap-6 md:grid-cols-3 lg:grid-cols-4">
+    <ul class="grid grid-cols-3 gap-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-6">
         {
             clothes.map(({ id, title, price, discount, images }) => (
                 <li>
                     <a
                         href={`/item/${id}`}
-                        class="flex flex-col items-start gap-4 rounded-lg border border-default bg-offset p-2"
+                        class="flex flex-col gap-1 rounded-lg border border-default bg-offset p-0 lg:items-start lg:gap-4 lg:p-2"
                     >
                         <img
                             src={`https://raw.githubusercontent.com/melushclothes/website/main/src/assets/clothes/${images[0]}.webp`}
@@ -30,7 +30,11 @@ const clothes = clothesJson.items.filter(
                             <h3 class="hidden font-semibold text-lg lg:block ">
                                 {title}
                             </h3>
-                            <PriceC price={price} discount={discount} />
+                            <PriceC
+                                price={price}
+                                discount={discount}
+                                compress={true}
+                            />
                         </div>
                     </a>
                 </li>

@@ -19,23 +19,22 @@ export function getStaticPaths() {
 
 const item = clothesJson.items.find((item) => item.id == id);
 
-// generate a map of the data wiuth the keys: materials sizes colors colors category
 const dataMap = new Map<string, any>([
-    ['materials', item?.materials],
-    ['sizes', item?.size],
-    ['category', item?.category],
+    ['Materiales', item?.materials],
+    ['Tallas', item?.size],
+    ['Categorías', item?.category],
 ]);
 ---
 
 <script>
-    const elmntToView = document.getElementById('clotheId');
+    const elmntToView = document.getElementById('clotheSpecs');
     const fixedTitleAction = document.getElementById('fixedTitleAction');
 
-    function scrollToTop() {
-        elmntToView!.scrollIntoView({ behavior: 'smooth' });
+    function scrollToToDescription() {
+        elmntToView!.scrollIntoView({ block: 'end', behavior: 'smooth' });
     }
 
-    fixedTitleAction!.addEventListener('click', scrollToTop);
+    fixedTitleAction!.addEventListener('click', scrollToToDescription);
 </script>
 
 <Layout>
@@ -56,8 +55,8 @@ const dataMap = new Map<string, any>([
             />
         </div>
         <div
-            id="clotheId"
-            class="top grid grid-cols-1 space-y-5 lg:relative lg:grid-cols-3"
+            id="clotheSpecs"
+            class="top grid grid-cols-1 space-y-5 lg:relative lg:grid-cols-3 lg:gap-4"
         >
             <div class="grid-rows-subgrid grid lg:col-span-2 lg:row-span-1">
                 <ClotheSpecs
@@ -71,7 +70,9 @@ const dataMap = new Map<string, any>([
                 price={item?.price || 0}
                 discount={item?.discount || 0}
             />
-            <div class="grid-rows-subgrid grid lg:col-span-3 lg:row-span-1">
+            <div
+                class="grid-rows-subgrid grid pl-5 pr-5 lg:col-span-3 lg:row-span-1 lg:pl-0 lg:pr-0"
+            >
                 <SimilarItems id={id} />
             </div>
         </div>

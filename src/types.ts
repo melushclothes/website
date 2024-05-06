@@ -16,7 +16,7 @@ export interface RPGBenefit {
 }
 
 export interface ClotheItem {
-  id: number;
+  id: string;
   title: string;
   materials: Array<string>;
   size: string;

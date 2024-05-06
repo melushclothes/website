@@ -1,17 +1,18 @@
 ---
 import Colors from './../../components/colors.astro';
+import { Icon } from 'astro-icon/components';
 
 export interface Props {
     title: string;
     description: string;
     colors: string[];
-    mapData: Map<String, any>;
+    mapData: Map<string, any>;
 }
 
 const { title, description, mapData, colors } = Astro.props;
 
-const labels = [];
-const values = [];
+const labels: string[] = [];
+const values: string[] = [];
 for (const [key, value] of mapData) {
     labels.push(key);
     if (typeof key === 'string') {
@@ -22,30 +23,39 @@ for (const [key, value] of mapData) {
 }
 ---
 
-<section id="ClotheSpecs" class="flex flex-col gap-4 space-y-2 lg:pr-4">
+<section
+    id="ClotheSpecs"
+    class="flex flex-col gap-4 space-y-2 pl-5 pr-5 lg:pl-0 lg:pr-4"
+>
+    <div
+        class="flex max-w-full flex-row items-center justify-center space-x-3 rounded-lg bg-accent p-2 text-accent lg:hidden"
+    >
+        <Icon name="mdi:arrow-up-thin-circle-outline" class="size-12" />
+        <h3 class="text-md font-semibold tracking-tight text-accent">
+            {'Galería'}
+        </h3>
+    </div>
     <h1
         class="text hidden text-start font-bold tracking-tight text-4xl lg:flex"
     >
         {title}
     </h1>
     <Colors colors={colors} />
-    <p class="text text-start text-lg">
+    <p class="text text-justify text-lg">
         {description}
     </p>
-    <div class="grid grid-cols-3">
-        <div class="flex flex-col gap-2">
-            {
-                labels.map((label) => (
+    <div class="grid grid-cols-1 gap-2 lg:grid-cols-3">
+        {
+            labels.map((label, index) => (
+                <>
                     <p class="text text-start text-lg">{`${label} :`}</p>
-                ))
-            }
-        </div>
-        <div class="flex flex-col gap-2">
-            {
-                values.map((value) => (
-                    <p class="text text-start text-lg">{value}</p>
-                ))
-            }
-        </div>
+                    <div class="grid-rows-subgrid col-span-1 grid lg:col-span-2">
+                        <p class="truncate font-semibold text-offset text-lg">
+                            {values[index]}
+                        </p>
+                    </div>
+                </>
+            ))
+        }
     </div>
 </section>
