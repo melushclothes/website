@@ -110,8 +110,8 @@
             "discount": 0
         },
         {
-            "id": "top-gaela",
-            "title": "Top Gaela",
+            "id": "top-marie",
+            "title": "Top Marie",
             "description": "Hecho de rib nacional súper cómodo y coqueto, es una prenda que no puede faltar en tu armario",
             "materials": [
                 "70 Algodón, 30 Spandex"
@@ -176,8 +176,8 @@
             "discount": 0
         },
         {
-            "id": "top-marie",
-            "title": "Top Marie",
+            "id": "top-gaela",
+            "title": "Top Gaela",
             "description": "Es el top más lindo que podrás encontrar además de ser súper cómodo, ya que tiene forro y lo puedes usar sin bra, con detalles de encaje alrededor del escote y con un lacito en el centro.",
             "materials": [
                 "Rib nacional"
@@ -185,10 +185,10 @@
             "size": "Standard",
             "price": 42,
             "images": [
-                "topmarie1",
+                "topmarie4",
                 "topmarie2",
-                "topmarie3",
-                "topmarie4"
+                "topmarie1",
+                "topmarie3"
             ],
             "colors": [
                 "#090810",
