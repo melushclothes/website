@@ -17,9 +17,13 @@ const { colors } = Astro.props;
             ))}
         </ul>
     ) : (
-        <div
-            class="hidden h-7 w-7 rounded-full md:flex lg:flex"
-            style={{ 'background-color': colors[0].toString() }}
-        />
+        <div class="invisible">
+            <ul>
+                <li
+                    class="mr-2 inline-block h-7 w-7 rounded-full border-2 border-accent"
+                    style={{ 'background-color': '#ffffff' }}
+                />
+            </ul>
+        </div>
     )
 }

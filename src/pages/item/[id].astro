@@ -40,7 +40,7 @@ const dataMap = new Map<string, any>([
 <Layout>
     <section
         id={id.toString()}
-        class="mx-auto flex max-w-6xl scroll-mt-24 flex-col items-center gap-4 py-32"
+        class="mx-auto flex max-w-6xl scroll-mt-24 flex-col items-center gap-4 pb-32 lg:pt-8"
     >
         <ImageGrid images={item?.images || []} />
         <div
@@ -63,7 +63,7 @@ const dataMap = new Map<string, any>([
                     title={item!.title}
                     mapData={dataMap}
                     colors={item?.colors || []}
-                    description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It"}
+                    description={item?.description || ''}
                 />
             </div>
             <ActionCard

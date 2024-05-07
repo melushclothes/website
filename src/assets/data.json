@@ -2,9 +2,10 @@
     "items": [
         {
             "id": "polo-basico",
-            "title": "Polo Basico",
+            "title": "Polo Básico",
+            "description": "Nuestros hermosos polos básicos están hechos de algodón 30/1 ,con bellos estampados en serigrafía y bordado con hilo lurex de la mejor calidad, perfectos para el día a día.",
             "materials": [
-                "Algodon"
+                "Algodón"
             ],
             "size": "M-L",
             "price": 45,
@@ -14,8 +15,9 @@
                 "polobasico2"
             ],
             "colors": [
+                "#303C54",
                 "#C8A2C8",
-                "#C8A2C8"
+                "#B49DB1"
             ],
             "category": "polo",
             "discount": 0
@@ -23,8 +25,9 @@
         {
             "id": "pijama-luna",
             "title": "Pijama Luna",
+            "description": "Quieres ser la más bella de la pijamada ,la pijama luna es la elección perfecta ya que es cómoda y linda hecha con algodón 30/1 y detalles de encaje perfecto para revelar tu lado seductor.",
             "materials": [
-                "Algodon 30/1",
+                "Algodón 30/1",
                 "con detalles de encaje"
             ],
             "size": "S-M",
@@ -45,6 +48,7 @@
         {
             "id": "lenceria-diana",
             "title": "Lenceria Diana",
+            "description": "Nuestra hermosa lencería está hecha de encaje colombiano, uno de los mejores encajes que se diferencia por su muy buena calidad, con detalles muy bellos y coquetos.",
             "materials": [
                 "Encaje colombiano"
             ],
@@ -58,8 +62,8 @@
                 "diana5"
             ],
             "colors": [
-                "rosa",
-                "negro"
+                "#7F786F",
+                "#2F3E5D"
             ],
             "category": "lenceria",
             "discount": 20
@@ -67,8 +71,9 @@
         {
             "id": "pijama-mariana",
             "title": "Pijama Mariana",
+            "description": "Hecha de algodón 30/1 ,super cómoda y linda con detalles de encaje y bolsillos.",
             "materials": [
-                "Algodon 30/1"
+                "Algodón 30/1"
             ],
             "size": "M-L",
             "price": 79.9,
@@ -87,6 +92,7 @@
         {
             "id": "enterizo-afrodita",
             "title": "Enterizo Afrodita",
+            "description": "El enterizo afrodita es perfecto para cualquier ocasión ,esta hecho de una tela super comoda que es la viscosa nacional ,es antitranspirable y tiene un perfecto ajuste en la cintura el cual definira mas tu figura.",
             "materials": [
                 "Viscosa Nacional"
             ],
@@ -98,27 +104,50 @@
                 "afrodita3"
             ],
             "colors": [
-                "negro",
-                "lila"
+                "#1E1F27"
             ],
             "category": "Enterizo",
             "discount": 0
         },
         {
+            "id": "top-gaela",
+            "title": "Top Gaela",
+            "description": "Hecho de rib nacional súper cómodo y coqueto, es una prenda que no puede faltar en tu armario",
+            "materials": [
+                "70 Algodón, 30 Spandex"
+            ],
+            "size": "Standard",
+            "price": 39.90,
+            "images": [
+                "topgaela1",
+                "topgaela2",
+                "topgaela3",
+                "topgaela4"
+            ],
+            "colors": [
+                "#A78F88",
+                "#161616",
+                "#E4DBCF"
+            ],
+            "category": "Tops",
+            "discount": 0
+        },
+        {
             "id": "top-romina",
             "title": "Top Romina",
+            "description": "EL Top Romina es súper cómodo hecho de rib nacional con detalles de encaje, un básico que no debe faltar en tu closet.",
             "materials": [
                 "Rib"
             ],
             "size": "Standard",
-            "price": 42.0,
+            "price": 39.90,
             "images": [
                 "romina1"
             ],
             "colors": [
-                "crema",
-                "blanco",
-                "negro"
+                "#2B2F2E",
+                "#E7DBCB",
+                "#F3EFEB"
             ],
             "category": "Tops",
             "discount": 0
@@ -126,6 +155,7 @@
         {
             "id": "yoga-pant",
             "title": "Yoga Pant",
+            "description": "Es el pant más cómodo que podrás encontrar, perfecto para el día a día, está hecho de viscosa nacional acanalada, no destiñe, y se adapta perfecto a tu cuerpo, te sentirás muy cómoda y bella.",
             "materials": [
                 "Viscosa Nacional Acanalada"
             ],
@@ -143,6 +173,29 @@
                 "negro"
             ],
             "category": "Pantalones",
+            "discount": 0
+        },
+        {
+            "id": "top-marie",
+            "title": "Top Marie",
+            "description": "Es el top más lindo que podrás encontrar además de ser súper cómodo, ya que tiene forro y lo puedes usar sin bra, con detalles de encaje alrededor del escote y con un lacito en el centro.",
+            "materials": [
+                "Rib nacional"
+            ],
+            "size": "Standard",
+            "price": 42.0,
+            "images": [
+                "topmarie1",
+                "topmarie2",
+                "topmarie3",
+                "topmarie4"
+            ],
+            "colors": [
+                "#090810",
+                "#87B2E8",
+                "#97827A"
+            ],
+            "category": "Tops",
             "discount": 0
         }
     ]
