@@ -97,7 +97,7 @@
                 "Viscosa Nacional"
             ],
             "size": "Standard",
-            "price": 115.0,
+            "price": 115,
             "images": [
                 "afrodita1",
                 "afrodita2",
@@ -183,7 +183,7 @@
                 "Rib nacional"
             ],
             "size": "Standard",
-            "price": 42.0,
+            "price": 42,
             "images": [
                 "topmarie1",
                 "topmarie2",

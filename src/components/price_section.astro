@@ -18,10 +18,10 @@ const { price, discount, customClass, compress } = Astro.props;
                         discount ? 'line-through' : ''
                     } font-bold text-currency text-base`}
                 >
-                    S/ {price % 1 === 0 ? price + '.00' : price.toFixed(2)}
+                    S/ {Number(price).toFixed(2)}
                 </p>
                 <p class="font-bold text-currencyDiscount text-base">
-                    {discount
+                    {discount > 0
                         ? ' - ' + (price - (price * discount) / 100).toFixed(2)
                         : ''}
                 </p>

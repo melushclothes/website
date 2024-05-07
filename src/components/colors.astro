@@ -1,13 +1,13 @@
 ---
 export interface Props {
-    colors: Array<String>;
+    colors: string[];
 }
 
 const { colors } = Astro.props;
 ---
 
 {
-    colors.length > 1 ? (
+    colors?.length > 1 ? (
         <ul>
             {colors.map((item) => (
                 <li

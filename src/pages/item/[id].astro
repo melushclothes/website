@@ -18,12 +18,6 @@ export function getStaticPaths() {
 }
 
 const item = clothesJson.items.find((item) => item.id == id);
-
-const dataMap = new Map<string, any>([
-    ['Materiales', item?.materials],
-    ['Tallas', item?.size],
-    ['Categorías', item?.category],
-]);
 ---
 
 <script>
@@ -61,7 +55,9 @@ const dataMap = new Map<string, any>([
             <div class="grid-rows-subgrid grid lg:col-span-2 lg:row-span-1">
                 <ClotheSpecs
                     title={item!.title}
-                    mapData={dataMap}
+                    materials={item?.materials || []}
+                    size={item?.size || ''}
+                    category={item?.category || ''}
                     colors={item?.colors || []}
                     description={item?.description || ''}
                 />

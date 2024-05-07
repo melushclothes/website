@@ -6,21 +6,15 @@ export interface Props {
     title: string;
     description: string;
     colors: string[];
-    mapData: Map<string, any>;
+    materials: string[];
+    size: string;
+    category: string;
 }
 
-const { title, description, mapData, colors } = Astro.props;
+const { title, description, materials, size, category, colors } = Astro.props;
 
-const labels: string[] = [];
-const values: string[] = [];
-for (const [key, value] of mapData) {
-    labels.push(key);
-    if (typeof key === 'string') {
-        values.push(value);
-    } else {
-        values.push(value.join(', '));
-    }
-}
+const labels: string[] = ['Materiales', 'Tallas', 'Categorías'];
+const values: any[] = [materials, size, category];
 ---
 
 <section
