@@ -4,20 +4,14 @@ import ClotheSpecs from './clothe-specs.astro';
 import ActionCard from './action-card.astro';
 import ImageGrid from './image-grid.astro';
 import StickyAction from './sticky-action.astro';
-import clothesJson from './../../assets/data.json' assert { type: 'json' };
 import Layout from './../../layouts/Layout.astro';
+import type { ClotheItem } from '~/types';
 
 const { id } = Astro.params;
 
-export function getStaticPaths() {
-    return clothesJson.items.map((item) => ({
-        params: {
-            id: item.id,
-        },
-    }));
-}
-
-const item = clothesJson.items.find((item) => item.id == id);
+const item = await fetch('https://api.melushstore.com/store_public/store_public/by_id?id=' + id)
+        .then((res) => res.json())
+        .then((data) => data as ClotheItem);
 ---
 
 <script>
@@ -33,10 +27,10 @@ const item = clothesJson.items.find((item) => item.id == id);
 
 <Layout>
     <section
-        id={id.toString()}
+        id={id!.toString()}
         class="mx-auto flex max-w-6xl scroll-mt-24 flex-col items-center gap-4 pb-32 lg:pt-8"
     >
-        <ImageGrid images={item?.images || []} />
+        <ImageGrid images={item?.imagesUrl || []} />
         <div
             id="fixedTitleAction"
             class="fixed bottom-0 h-auto w-full bg-default p-4"
@@ -56,10 +50,9 @@ const item = clothesJson.items.find((item) => item.id == id);
                 <ClotheSpecs
                     title={item!.title}
                     materials={item?.materials || []}
-                    size={item?.size || ''}
-                    category={item?.category || ''}
+                    sizes={item?.sizes || ''}
+                    categories={item?.category || ''}
                     colors={item?.colors || []}
-                    description={item?.description || ''}
                 />
             </div>
             <ActionCard
@@ -69,7 +62,7 @@ const item = clothesJson.items.find((item) => item.id == id);
             <div
                 class="grid-rows-subgrid grid pl-5 pr-5 lg:col-span-3 lg:row-span-1 lg:pl-0 lg:pr-0"
             >
-                <SimilarItems id={id} />
+                <!-- <SimilarItems id={id} /> -->
             </div>
         </div>
     </section>

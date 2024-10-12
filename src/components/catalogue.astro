@@ -1,53 +1,47 @@
 ---
+import ProductCarousel from '~/components/product-carousel.svelte';
 import ContentSection from '~/components/content-section.astro';
 import PriceC from '~/components/price_section.astro';
 import type { ClotheItem } from '~/types';
 import Carousel from './carousel.svelte';
 import Colors from './colors.astro';
-import clothesJson from "./../assets/data.json" assert { type: 'json' };
 
-
-const clothes: Array<ClotheItem> = clothesJson.items;
-
-
-type Image = {
-	title: string;
-	explanation: string;
-	media_type: 'image' | 'video';
-	/** Date published in YYYY-MM-DD format */
-	date: string;
-	/** Video URL or standard resolution image URL */
-	url: string;
-	/** High-res image URL (for media_type: 'image' only) */
-	hdurl?: string;
-	/** API version. Defaults to "v1" */
-	service_version: string;
-}
+const clothes = await fetch('https://api.melushstore.com/store_public')
+    .then((res) => res.json())
+    .then((data) => data as ClotheItem[])
 ---
 
 <ContentSection id="catalogue">
-  <ul class="grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-    {
-      clothes.map(({ id, title, materials, size, price, discount, images, colors }) => (
+    <ProductCarousel client:idle>
+      <ul class="grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {
+        clothes == null ? (
+          <li>Loading...</li>
+        ) : (
+        clothes.map(({ id, title, materials, sizes, price, discount, imagesUrl, colors }) => (
         <li>
-          <a class="flex flex-col items-start gap-4 rounded-lg border border-default bg-offset p-2" href={`/item/${id}`}>
-          <Carousel client:load images={images}} />
-            <header class="text-center font-extrabold text-xl">{title}</header>
-          <Colors colors={colors}/>
-          <section class="flex w-full justify-between space-x-4">
-            <p class="text text-base">Materiales</p>
-            <p class="truncate font-semibold text-offset text-base">
-              {materials.join(',')}
-            </p>
-          </section>
-          <section class="flex w-full justify-between">
-            <p class="text text-base">Tallas</p>
-            <p class="font-semibold text-offset text-base">{size}</p>
-          </section>
-          <PriceC price={price} discount={discount} />
-        </a>
-        </li>
-      ))
-    }
-  </ul>
+            <a class="flex flex-col items-start gap-4 rounded-lg border border-default bg-offset p-2" href={`/item/${id}`}>
+              {imagesUrl && <Carousel client:load images={imagesUrl}/>} 
+              <header class="text-center font-extrabold text-xl">{title}</header>
+              <Colors colors={colors}/>
+              <section class="flex w-full justify-between space-x-4">
+                <p class="text text-base">Materiales</p>
+                <p class="truncate font-semibold text-offset text-base">
+                {materials.map(({ name }) => name).join(', ')}
+                </p>
+              </section>
+              <section class="flex w-full justify-between">
+                <p class="text text-base">Tallas</p>
+                <p class="font-semibold text-offset text-base">
+                {sizes.map(({ name }) => name).join(', ')}
+                </p>
+              </section>
+              <PriceC price={price} discount={discount} />
+          </a>
+          </li>
+        ))
+        )
+      }
+    </ul>
+  </ProductCarousel>
 </ContentSection>

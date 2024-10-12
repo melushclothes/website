@@ -1,6 +1,8 @@
 ---
+import type { ItemColor } from '~/types';
+
 export interface Props {
-    colors: string[];
+    colors: ItemColor[];
 }
 
 const { colors } = Astro.props;
@@ -12,7 +14,7 @@ const { colors } = Astro.props;
             {colors.map((item) => (
                 <li
                     class="mr-2 inline-block h-7 w-7 rounded-full border-2 border-accent"
-                    style={{ 'background-color': item.toString() }}
+                    style={{ 'background-color': `#${item.code}` }}
                 />
             ))}
         </ul>

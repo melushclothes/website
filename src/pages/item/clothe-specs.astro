@@ -1,20 +1,20 @@
 ---
+import type { ItemCategory, ItemColor, ItemMaterial, ItemSize } from '~/types';
 import Colors from './../../components/colors.astro';
 import { Icon } from 'astro-icon/components';
 
 export interface Props {
     title: string;
-    description: string;
-    colors: string[];
-    materials: string[];
-    size: string;
-    category: string;
+    colors: ItemColor[];
+    materials: ItemMaterial[];
+    sizes: ItemSize[];
+    categories: ItemCategory[];
 }
 
-const { title, description, materials, size, category, colors } = Astro.props;
+const { title, materials, sizes, categories, colors } = Astro.props;
 
 const labels: string[] = ['Materiales', 'Tallas', 'Categorías'];
-const values: any[] = [materials, size, category];
+const values: any[] = [materials, sizes, categories];
 ---
 
 <section
@@ -35,9 +35,6 @@ const values: any[] = [materials, size, category];
         {title}
     </h1>
     <Colors colors={colors} />
-    <p class="text text-justify text-lg">
-        {description}
-    </p>
     <div class="grid grid-cols-1 gap-2 lg:grid-cols-3">
         {
             labels.map((label, index) => (
@@ -45,7 +42,7 @@ const values: any[] = [materials, size, category];
                     <p class="text text-start text-lg">{`${label} :`}</p>
                     <div class="grid-rows-subgrid col-span-1 grid lg:col-span-2">
                         <p class="truncate font-semibold text-offset text-lg">
-                            {values[index]}
+                            {Array.isArray(values[index]) ? values[index].map((item: { name: string }) => item.name).join(', ') : ''}
                         </p>
                     </div>
                 </>

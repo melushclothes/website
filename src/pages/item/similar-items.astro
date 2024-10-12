@@ -1,8 +1,12 @@
 ---
-import PriceC from '~/components/price_section.astro';
-import clothesJson from './../../assets/data.json' assert { type: 'json' };
+import PriceC from '~/components/price_section.astro'
+import type { ClotheItem } from '~/types';
 
 const { id } = Astro.params;
+
+const clothesJson = await fetch('https://api.melushclothes.com/store_public')
+    .then((res) => res.json())
+    .then((data) => data as ClotheItem[])[0];
 
 const clothes = clothesJson.items.filter(
     (item) => item.id.toString() != id?.toString(),
