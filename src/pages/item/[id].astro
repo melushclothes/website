@@ -9,7 +9,7 @@ import type { ClotheItem } from '~/types';
 
 const { id } = Astro.params;
 
-const item = await fetch('https://api.melushstore.com/store_public/store_public/by_id?id=' + id)
+const item = await fetch('https://api.melushstore.com/store_public/by_id?id=' + id)
         .then((res) => res.json())
         .then((data) => data as ClotheItem);
 ---
