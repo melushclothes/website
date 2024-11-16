@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "include": [
+    "/*"
+  ],
+  "exclude": [
+    "/_astro/*",
+    "/CNAME",
+    "/favicon.svg",
+    "/social.png"
+  ]
+}
