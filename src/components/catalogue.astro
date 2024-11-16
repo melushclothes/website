@@ -6,9 +6,14 @@ import type { ClotheItem } from '~/types';
 import Carousel from './carousel.svelte';
 import Colors from './colors.astro';
 
+const bannedItems = ['984371e5-2aee-4884-84a0-4d92ae761b8e']
+
 const clothes = await fetch('https://api.melushstore.com/store_public')
     .then((res) => res.json())
     .then((data) => data as ClotheItem[])
+    .then((data) => data.filter(({ imagesUrl }) => imagesUrl.length > 0))
+    .then((data) => data.filter(({ id }) => !bannedItems.includes(id)))
+
 ---
 
 <ContentSection id="catalogue">
