@@ -2,7 +2,6 @@
   import { fly } from 'svelte/transition';
   import Image from './image.svelte';
 
-
   export let images = [];
 
   let currentIdx = 0;
@@ -24,9 +23,13 @@
   <div class="image-container relative" transition:fly={{ y: 30 }}>
     <Image 
     class="absolute top-0 left-0 w-full h-full object-cover"
-    title={image.title} src={
-      "https://raw.githubusercontent.com/melushclothes/website/main/src/assets/clothes/" + image + ".webp"
-    } alt={image.explanation}>
+    title={image.id} src={
+      image.url
+    } alt={
+      // TODO: image.alt
+      // image.explanation
+      'Clothes from melush'
+    }>
     <div slot="figcaption" class="absolute bottom-0 top-0 left-0 flex justify-between w-full">
       {#if images.length > 1}
       <button  on:click={previous} aria-label="Previous">
