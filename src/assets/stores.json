@@ -1,0 +1,22 @@
+{
+    "items": [
+        {
+        "id": 1,
+        "name": "Kade concept",
+        "address": "Galería Multicentro, 2do piso, Tda. M6",
+        "district": "Miraflores, Lima",
+        "schedule": "Lunes a Sábado de 11 am a 2 pm de 3 pm a 9 pm",
+        "instagram": "kadeconcept_",
+        "locationUrl" : "https://maps.app.goo.gl/JsaiRLRE7JVNavtv7"
+        },
+        {
+        "id": 2,
+        "name": "Flamingos Peru",
+        "address": "C.C. Caminos del Inca Tienda 86 - Segundo Piso",
+        "district": "Surco, Lima",
+        "schedule": "Lunes a Sábado de 11 am a 8 pm \n Domingo de 2 pm a 6:30 pm",
+        "instagram": "flamingos.peru",
+        "locationUrl" : "https://maps.app.goo.gl/F9zhg6JcgpAg4ATk8"
+        }
+    ]
+}

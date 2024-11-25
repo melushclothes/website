@@ -49,3 +49,7 @@
 - Project for setting content on backend
 - Make image resize to something around 480x480px
 - Migrate to matomo for analytics once there is money for shared hosting
+
+### Icons
+
+The icons can be found [here](https://icon-sets.iconify.design/)

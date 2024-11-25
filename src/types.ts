@@ -71,3 +71,13 @@ export interface NavItem {
   title: string;
   url: string;
 }
+export type Store = {
+  id: number;
+  name: string;
+  address: string;
+  district: string;
+  schedule: string;
+  instagram: string;
+  locationUrl: string;
+};
+
