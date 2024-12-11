@@ -1,0 +1,6 @@
+# Welcome crawler to Melush
+
+User-agent: *
+Disallow: /legal/
+
+Sitemap: https://melushstore.com/sitemap-index.xml

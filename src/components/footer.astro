@@ -21,11 +21,18 @@ const contactPlatforms: Array<ContactItem> = [
 ];
 ---
 
-<footer class="relative flex h-64 items-center justify-center bg-offset">
+<footer
+  class="relative flex lg:h-80 h-120 flex-col items-center justify-center gap-8 bg-offset px-8 py-8"
+>
   <section>
-    <h2 class="mb-4 text-center font-bold text-4xl">
+    <h2 class="mb-4 text-center font-bold text-2xl">
       Síguenos en nuestras redes
     </h2>
     <SocialMedia items={contactPlatforms} />
+  </section>
+  <section class="flex gap-8">
+    <span class="font-bold text-sm">Melush © 2024</span>
+    <a href="/legal" class="mb-4 text-start font-bold text-sm">Privacidad y Legal</a>
+    <a href="/contact" class="mb-4 text-start font-bold text-sm">Contacto</a>
   </section>
 </footer>
