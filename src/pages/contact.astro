@@ -1,0 +1,32 @@
+---
+import ContactInfo from '~/components/contact-info.astro';
+import Layout from '../layouts/Layout.astro';
+import type { ContactItem } from '~/types';
+
+const contactPlatforms: Array<ContactItem> = [
+    {
+        title: '(+51) 982 391 450',
+        icon: 'mdi:whatsapp',
+        url: 'https://wa.me/+51982391450',
+    },
+    {
+        title: 'team@melushstore.com',
+        icon: 'mdi:email',
+        url: 'mailto:team@melushstore.com',
+    }
+];
+---
+
+<Layout>
+    <main class="space-y-16 pb-32 lg:px-0">
+        <h2 class="bg-offset h-60 font-bold text-5xl flex items-center justify-center lg:px-0 px-8">
+            Contacto
+        </h2>
+
+        <section class="flex flex-col gap-4 px-8 lg:px-20">
+            <p>En Melush nos dedicamos a ofrecerte la mejor experiencia posible, si tienes algun consulta o recomendación nos puedes contactar a través de los siguientes medios:</p>
+            <ContactInfo items={contactPlatforms} />
+        </section>
+
+        </main>
+</Layout>
